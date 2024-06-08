@@ -1,20 +1,20 @@
-import video from "../data/video.js";
+// App.js
+import React from 'react';
+import video from '../data/video.js';
+import VideoPlayer from './VideoPlayer';
+import CommentsList from './CommentList';
+import VoteButtons from './VoteButtons';
+import ToggleCommentsButton from './ToggleCommentsButton';
 
 function App() {
-  console.log("Here's your data:", video);
-
   return (
     <div className="App">
-      <iframe
-        width="919"
-        height="525"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        frameBorder="0"
-        allowFullScreen
-        title="Thinking in React"
-      />
+      <VideoPlayer video={video} />
+      <VoteButtons initialUpvotes={video.upvotes} initialDownvotes={video.downvotes} />
+      <ToggleCommentsButton video={video} />
     </div>
   );
 }
 
 export default App;
+
